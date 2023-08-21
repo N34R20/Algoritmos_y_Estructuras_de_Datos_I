@@ -1,6 +1,6 @@
 ¡Excelente elección! Haskell es un lenguaje de programación funcional puro que se destaca por su enfoque en la programación declarativa y en la aplicación de conceptos matemáticos en la programación. Aquí tienes una introducción a su filosofía y fundamentos:
 
-**Filosofía:**
+## **Filosofía:**
 
 1. **Pureza:** En Haskell, la pureza se refiere a que las funciones no tienen efectos secundarios y siempre producen el mismo resultado para los mismos argumentos. Esto facilita la comprensión del código y la depuración.
 
@@ -10,7 +10,7 @@
 
 4. **Funciones de Primera Clase:** Las funciones en Haskell son tratadas como ciudadanos de primera clase. Pueden pasarse como argumentos a otras funciones, retornarse de funciones y asignarse a variables.
 
-**Fundamentos:**
+## **Fundamentos:**
 
 1. **Funciones:** En Haskell, las funciones son el núcleo de la programación. Se definen mediante ecuaciones que describen cómo un valor se relaciona con otros valores.
 
