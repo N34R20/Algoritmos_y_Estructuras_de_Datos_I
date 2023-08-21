@@ -1,4 +1,4 @@
-¡Excelente elección! Haskell es un lenguaje de programación funcional puro que se destaca por su enfoque en la programación declarativa y en la aplicación de conceptos matemáticos en la programación. Aquí tienes una introducción a su filosofía y fundamentos:
+Haskell es un lenguaje de programación funcional puro que se destaca por su enfoque en la programación declarativa y en la aplicación de conceptos matemáticos en la programación. Aquí tienes una introducción a su filosofía y fundamentos:
 
 ## **Filosofía:**
 
