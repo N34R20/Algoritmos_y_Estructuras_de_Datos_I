@@ -1,8 +1,9 @@
--- {- hola -}
+-- ghci
 
 doubleMe :: Num a => a -> a 
 doubleMe x = x + x
 
+-- Ejercicio 1
 f :: Int -> Int
 f 1 = 8
 f 4 = 131
@@ -18,6 +19,8 @@ h x = f (g x)
 
 k :: Int -> Int
 k x = g (f x) 
+
+-- Ejercicio 2
 
 absoluto :: Int -> Int
 absoluto x | x > 0 = x
@@ -73,6 +76,31 @@ digitoDecenas x | x < 10 = 0
                 | mod x 100 < 10 = 0
                 | otherwise = ((mod x 100) - (digitoUnidades x)) `div` 10 
 
+-- Ejercicio 3
 estanRelacionados :: Int -> Int -> Bool
 estanRelacionados x y | (x * x) + ((x * y) * (-(x)`div`(y))) == 0 = True
                       | otherwise = False
+
+-- Ejercicio 4
+
+prodInt :: (Float, Float) -> (Float, Float) -> Float
+prodInt (x,y) (z,w) = (x*z) + (y*w)
+
+todoMenor :: (Float, Float) -> (Float, Float) -> Bool
+todoMenor (x,y) (z,w) | (x < z) && (y < w) = True
+                      | otherwise = False
+
+distanciaPuntos :: (Float, Float) -> (Float, Float) -> Float
+distanciaPuntos (x,y) (z,w) = sqrt((x-z)**2 + (y-w)**2)
+
+sumaTerna :: (Int, Int, Int) -> Int
+sumaTerna (x, y, z) = x + y + z
+
+sumarSoloMultiplos :: (Int, Int, Int) -> Int -> Int
+sumarSoloMultiplos (x, y, z) a | esMultiploDe x a == True = 0
+
+porPrimerPar :: (Int, Int, Int) -> Int
+porPrimerPar (x,y,z) | esMultiploDe x 2 == True = 0
+                     | esMultiploDe y 2 == True = 1
+                     | esMultiploDe z 2 == True = 2
+                     | otherwise = 4
