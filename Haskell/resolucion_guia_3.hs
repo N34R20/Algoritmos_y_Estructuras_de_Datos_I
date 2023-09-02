@@ -14,11 +14,11 @@ g x | x == 8 = 16
     | x == 16 = 4
     | x == 131 = 1
 
-h :: Int -> Int
-h x = f (g x) 
+l :: Int -> Int
+l x = f (g x) 
 
-k :: Int -> Int
-k x = g (f x) 
+m :: Int -> Int
+m x = g (f x) 
 
 -- Ejercicio 2
 
@@ -104,3 +104,19 @@ porPrimerPar (x,y,z) | esMultiploDe x 2 == True = 0
                      | esMultiploDe y 2 == True = 1
                      | esMultiploDe z 2 == True = 2
                      | otherwise = 4
+
+
+-- Ejercicio 5
+--{ Implementar la funcion todosMenores :: (Integer, Integer, Integer)} --
+todosMenores :: (Integer, Integer, Integer) -> Bool
+todosMenores (n1, n2, n3) | (h(n1) > k(n1)) && (h(n2) > k(n2)) && (h(n3) > k(n3)) = True
+                          | otherwise = False
+
+h :: Integer -> Integer
+h n | n <= 7 = n ^ 2
+    | n > 7 = 2 * n - 1
+
+
+k :: Integer -> Integer
+k n | mod n 2 == 0 = div n 2
+    | otherwise = 3 * n + 1 

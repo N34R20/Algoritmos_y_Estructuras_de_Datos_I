@@ -79,8 +79,21 @@ Funciones de acceso a los valores de un par en Prelude
 - para nosotros, alcanza con ver que evita el uso de varios signos de puntuacion (comas y parentesis)
 
 ## Funciones binarias: notacion prefija vs. infija
+### **Funciones binarias**
+
+- Notacion prefija funcion antes de los argumentos
+
+- Notacion infija funcion entre argumentos
+
+- La notacion infija se permite para funciones cuyos nombres son operadores
+
+- Una funcion binaria f puede ser usada de forma infija escribiendo 'f'
 
 ## Recursion
+Elementos :
+- llamada recursiva
+- caso base
+- que en cada iteracion se acerque al cosa base
 
 Hasta ahora, especificamos funciones que consistian en "expresiones sencillas"
 Como es una funcion en Haskell para calcular el factorial de un numero n &#8712; N?
@@ -129,7 +142,27 @@ Como reduce la expresion factorial 3?
 factorial 3 -> 3 * factorial 2 -> 3 * 2 * factorial 1 -> 6 * factorial 1 -> 6 * 1 factorial 0 -> 6 * factorial 0 -> 6 * 1 -> 6 
 
 ### Asegurarse de llegar a un caso base
+Veamos este programa recursivo para determinar si un entero positivo es par:
 
+```haskell
+esPar :: Int -> Bool
+esPar n | n==0 = True
+        | otherwise esPar(n-2)
+```
+Que problema tiene esta funcion?
+
+Como se arregla?
+```
+esPar :: Int -> Bool
+esPar n | n==0 = True
+        | n == 1 = False
+        | otherwise esPar(n-2)
+
+esPar :: Int -> Bool
+esPar n | n==0 = True
+        | otherwise = not (esPar(n-1))
+     
+```
 ## Como pensar recursivamente?
 
 Si queremos defenir una funcion recursiva, por ejemplo factorial,
@@ -138,14 +171,21 @@ Si queremos defenir una funcion recursiva, por ejemplo factorial,
     - ademas, identificamos el o los **casos base**. En el ejemplo de factorial, definimos como casos base la funcion sobre 0:
     factorial n | n == 0 = 1
 
-Propiedades de una definicion recursiva 
+Propiedades de una definicion recursiva:
 - las **llamadas recursivas** tienen que "acercarse" a un caso base
 - tiene que tener uno o mas **casos base** que dependeran del tipo de llamado recursivo. Un caso base, es aquella expresion que no tiene paso recursivo
 
 ### Casos base
 - identificar el o los casos
 - Casos recursivos: suponiendo que la llamada recursiva es correcta, que tengo que hacer para completar la solucion?
--
+
+```
+sumaLosPrimerosNImpares :: Integer -> Integer
+sumaLosPrimerosNImpares n | n == 1 = 1
+                          | n > 1 = ... sumaLosPrimerosNImpares
+```
+
+- Verificar que (n==1) es el caso base, esta bien definido y no hay otros
 - Si podemos dar una solucion correcta en base a una llamada recursiva correcta entonces, por induccion. Todos van a ser correctos!
 
 
@@ -171,5 +211,6 @@ Veamos primero la especificacion:
 problema sumatoriaDoble(n:Z, m:Z): Z{
     requiere: {(n > 0) ^ (m > 0)}
     asegura: {res = f(n,m) = \sum_{i=1}^n \sum_{j=1}^m i^j }
+    
 }
 ```
