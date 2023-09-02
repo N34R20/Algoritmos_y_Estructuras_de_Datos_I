@@ -120,3 +120,16 @@ h n | n <= 7 = n ^ 2
 k :: Integer -> Integer
 k n | mod n 2 == 0 = div n 2
     | otherwise = 3 * n + 1 
+
+-- Ejercicio 6
+-- Programar una funcion bisiesto :: Integer --> Bool
+
+-- (problema bisiesto (año:Z): Bool {
+--    requiere: {True}
+--    asegura: {res=false <-> año no es multiplo de 4 o es multipo de 100 pero no de 400}
+-- }
+
+bisiesto :: Integer -> Bool
+bisiesto x | (mod x 4 /= 0) = False
+           | ((mod x 100 == 0) && (mod x 400 /= 0)) = False
+           | otherwise = True 
