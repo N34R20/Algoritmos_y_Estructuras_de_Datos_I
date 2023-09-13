@@ -56,4 +56,52 @@ cantDigitos n | n < 10 = 1
 iesimoDigitoSinRecursion :: Integer -> Integer -> Integer
 iesimoDigitoSinRecursion n i | i > cantDigitos n = 0 
                              | otherwise = mod (div n (10**(i-1))) 10
-                
+
+-- Ejercicio 9
+-- Especiﬁcar e implementar una funcion esCapicua :: Integer ->Bool que dado n ∈ N≥0 determina si n es
+-- un numero capicua
+
+-- requiere {neN>=0}
+esCapicua :: Integer -> Bool 
+esCapicua n | n < 10 = True
+            | otherwise = esCapicua(div n 10**cantDigitos n - 1 == mod n 10) = True
+
+-- Ejercicio 11
+-- a) 
+
+factorial :: Integer -> Integer
+factorial n | n == 0 = 1
+            | otherwise = n * factorial(n-1)
+
+eAprox :: Integer -> Float
+eAprox n | n == 0 = 1.0
+         | n == 1 = 1.0
+         | otherwise = 1/fromIntegral((factorial n)) + eAprox (n-1)
+
+
+
+
+-- Ejercicio 13
+sumatoriaInterna :: Int -> Int -> Int
+sumatoriaInterna _ 0 = 0 
+sumatoriaInterna n m = n^m + sumatoriaInterna n (m-1)
+
+sumatoriaDoble :: Int -> Int -> Int
+sumatoriaDoble 0 _ = 0
+sumatoriaDoble n m = sumatoriaDoble n m + sumatoriaDoble (n-1) m
+
+-- Ejercicio 16
+-- a)
+buscarDivisor :: Integer -> Integer -> Integer
+buscarDivisor n k | k*k > n = n 
+                  | mod n k == 0 = k 
+                  | otherwise = buscarDivisor n (k+1)
+
+menorDivisor :: Integer -> Integer
+menorDivisor n = buscarDivisor n 2
+
+-- ejercicio 17
+-- no funca
+esFibonacci :: Integer -> Bool
+esFibonacci n | n == 0 = True
+              | otherwise = (n == fibonacci(n) || esFibonacci(n-1))
