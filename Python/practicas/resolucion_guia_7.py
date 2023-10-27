@@ -3,7 +3,9 @@ from typing import List
 
 """
 Primera Parte
+
 """
+
 # EJERCICIO 1
 
 #1.1
@@ -77,6 +79,7 @@ def tieneNumero(contra:str) -> str:
 
 def fortaleza(contra:str) -> str:
     return None
+
 
 """
 Segunda Parte

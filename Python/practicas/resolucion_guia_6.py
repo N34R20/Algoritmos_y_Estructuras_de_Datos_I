@@ -1,5 +1,10 @@
-# Ejercicio 1
-# 1) imprimir_hola_mundo
+
+"""
+EJERCICIO 1
+
+"""
+
+# 1)
 def imprimir_hola_mundo() -> str:
     print("Hola mundo!")
 
@@ -28,7 +33,10 @@ def perimetro() -> float:
 
 print(perimetro()) 
     
-# Ejercicio 2
+"""
+EJERCICIO 2
+
+"""
 
 # 1)
 def imprimir_saludo(nombre:str) -> str: 
@@ -75,7 +83,10 @@ def cantidad_de_pizzas(comensales:int, min_cant_de_porciones:int) -> int:
 
 print(cantidad_de_pizzas(4,7))
 
-# Ejercicio 3
+"""
+EJERCICIO 3
+
+"""
 
 # 1)
 def alguno_es_0(n1:float,n2:float) -> bool:
@@ -108,8 +119,10 @@ def es_bisiesto(year:int) -> bool:
     else:
         return False
 
+"""
+EJERCICIO 4
 
-# Ejercicio 4
+"""
 
 # 1)
 def peso_pino():
@@ -127,8 +140,10 @@ def sirve_pino():
 def sirve_pino2():
     return None
 
+"""
+EJERCICIO 5
 
-# Ejercicio 5
+"""
 
 # 1)
 def devolver_el_doble_si_es_par(num:int) -> int:
@@ -182,7 +197,10 @@ def vacaciones_o_trabajo(sexo:str, edad:int):
     else:
         print("Te toca trabajar")
 
-# Ejercicio 6
+"""
+EJERCICIO 6
+
+"""
 
 # 1)
 def del_1_al_10():
@@ -208,12 +226,18 @@ def viaje_en_el_tiempo(partida, llegada):
 def viaje_hasta_384aC(partida):
     return None
 
-# Ejercicio 7
-# implementar las funciones del ejercicio 6 utilizando for num in range(i,f,p):. Recordar que la funci ́on
+"""
+EJERCICIO 7
+
+"""
+# implementar las funciones del EJERCICIO 6 utilizando for num in range(i,f,p):. Recordar que la funci ́on
 # range para generar una secuencia de n umeros en un rango dado, con un valor inicial i, un valor final f y un paso p. 
 
-# Ejercicio 8
-# realizar la ejecucion simbolica de los siguientes codigos
+"""
+EJERCICIO 8
+realizar la ejecucion simbolica de los siguientes codigos
+
+"""
 
 # 1)
 def cantidad():
@@ -235,8 +259,10 @@ def cantidad():
 def cantidad():
     return None
 
+"""
+EJERCICIO 9
 
-# Ejercicio 9
+"""
 
 # 1)
 def rt(x: int, g: int) -> int:
