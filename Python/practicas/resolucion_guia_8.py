@@ -102,6 +102,7 @@ def binarioMasLegibles(nombre_archivo: str) -> List():
     return  palabras_legibles
 
 # 7 
+# todavia faltas
 def inspect_column(data: list, num_of_column: int) -> list:
   list_ = list()
   for line in data[1::]:
@@ -111,7 +112,7 @@ def inspect_column(data: list, num_of_column: int) -> list:
 def promedioEstudiante(lu: str) -> float:
     with open(nombre_archivo, 'r', encoding='utf-8') as file:
         lineas = file.readlines()
-    return 
+    return None
 
 """
 PILAS
@@ -119,7 +120,7 @@ PILAS
 
 # 8
 
-def generar_numeros_random(n:int,desde:int,hasta:int) ->Pila:
+def generar_numeros_al_azar_pila(n:int,desde:int,hasta:int) ->Pila:
     p=Pila()
     for i in range(n):
         p.put(random.randint(desde, hasta))
@@ -128,7 +129,7 @@ def generar_numeros_random(n:int,desde:int,hasta:int) ->Pila:
 
 # 9
 
-def cantidad_elementos(p:Pila)-> int:
+def cantidad_elementos_pila(p:Pila)-> int:
     elementos:int= 0 
     while not p.empty():
         p.get()
@@ -148,23 +149,7 @@ def ElMaximo(p: Pila[int]) -> int:
 
     return res         
 
-def copiar(p:Cola) -> Cola:
-    elements: int=[]
-    while not p.empty():
-        elements.append(p.get())
-    p_copy: Cola = Cola()
-    for i in range(len(elements)-1, 0-1,-1):
-        p.put(elements[i])
-        p_copy.put(elements[i])
-    return p_copy
 
-def buscarElMaximo (p:Cola) -> int:
-    p_copy: Cola = copiar(p)   
-    value=p_copy.get()
-    while not p_copy.empty():
-        next_value=p_copy.get()
-        value=max(next_value,value)
-    return value
 
 """
 pila: Cola=Cola()
@@ -223,9 +208,44 @@ COLAS
 
 # 13
 
+def generar_numeros_al_azar_cola(n:int,desde:int,hasta:int) -> Cola:
+    
+    c=Cola()
+    
+    for i in range(n):
+        c.put(random.randint(desde, hasta))
+        
+    return c
+
 # 14
 
+def cantidad_elementos_cola(c:Cola)-> int:
+    elementos:int = 0 
+    while not c.empty():
+        c.get()
+        elementos+=1
+
+    return elementos
+
 # 15
+
+def copiar(p:Cola) -> Cola:
+    elements: int=[]
+    while not p.empty():
+        elements.append(p.get())
+    p_copy: Cola = Cola()
+    for i in range(len(elements)-1, 0-1,-1):
+        p.put(elements[i])
+        p_copy.put(elements[i])
+    return p_copy
+
+def buscarElMaximo (p:Cola) -> int:
+    p_copy: Cola = copiar(p)   
+    value=p_copy.get()
+    while not p_copy.empty():
+        next_value=p_copy.get()
+        value=max(next_value,value)
+    return value
 
 # 16
 
@@ -253,10 +273,66 @@ DICCIONARIOS
 
 # 19
 
+def lista_de_palabras(nombre_archivo:str) -> list:
+    
+    palabras = list()
+    with open(nombre_archivo, "r", encoding="utf-8") as file:
+        
+        lineas = file.readlines()
+        for palabra in lineas:
+            linea = palabra.lstrip().split(" ")
+            for palabra in linea:
+                palabras.append(palabra)
+    return palabras
+
+def agrupar_por_longitud(nombre_archivo: str) -> dict:
+
+    longitud = dict()
+    palabras = lista_de_palabras(nombre_archivo)
+    for palabra in palabras:
+        if len(palabra) not in longitud:
+            longitud[len(palabra)] = 1
+        else: 
+            longitud[len(palabra)] += 1
+    return longitud        
+    
 # 20
+
 
 # 21
 
+def palabra_mas_frecuente(nombre_archivo: str) -> str:
+    frecuencias_de_palabras = dict()
+    palabras = lista_de_palabras(nombre_archivo)
+    for palabra in palabras:
+        if palabra not in frecuencias_de_palabras:
+            frecuencias_de_palabras[palabra] = 1
+        else: 
+            frecuencias_de_palabras[palabra] += 1
+    
+    palabra_mas_frecuente =  max(frecuencias_de_palabras, key=frecuencias_de_palabras.get)        
+    return palabra_mas_frecuente
+
 # 22
 
+historiales = dict()
+
+"""
+historiales[usuario] = Cola(paginas_web)
+"""
+
+def visitar_sitio(historiales: dict, usuario: str, sitio: str):
+    historiales[usuario] = Cola()
+    historiales[usuario].put(sitio)
+    
+def navegar_hacia_atras(historiales: dict, usuario: str):
+    return historiales[usuario].get()
+
+def navegar_hacia_adelante(historiales: dict, usuario: str):
+    historiales[usuario].put()
+
 # 23
+inventario = dict()
+
+def agregar_producto():
+    return None
