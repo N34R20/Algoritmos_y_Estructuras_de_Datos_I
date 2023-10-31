@@ -315,6 +315,8 @@ def palabra_mas_frecuente(nombre_archivo: str) -> str:
 
 # 22
 
+# 22
+
 historiales = dict()
 
 """
@@ -322,14 +324,101 @@ historiales[usuario] = Cola(paginas_web)
 """
 
 def visitar_sitio(historiales: dict, usuario: str, sitio: str):
-    historiales[usuario] = Cola()
-    historiales[usuario].put(sitio)
+    if usuario not in historiales:
+        historiales[usuario] = (Pila(), Pila())
+        historiales[usuario][0].put(sitio)
+    else:
+        historiales[usuario][0].put(sitio)       
     
-def navegar_hacia_atras(historiales: dict, usuario: str):
-    return historiales[usuario].get()
 
+def navegar_hacia_atras(historiales: dict, usuario: str):
+    if usuario in historiales:
+        historiales[usuario][1].put(historiales[usuario][0].get()) 
+
+    else:
+        print("error: no se encontro al usuario en el registro.")
+
+
+# como hacer para devolver un elemento que ya saque
+# 1) trabajar sobre una lista replica
+# 2) crear una seguna cola donde meto las paginas para atras 
+# me gusta mas la segunda opcion 
+# 
+ 
 def navegar_hacia_adelante(historiales: dict, usuario: str):
-    historiales[usuario].put()
+    if usurio in historiales:
+
+        historiales[usuario][0].put(historiales[usuario][1].get()) 
+
+    else:
+        print("error: no se encontro al usuario en el registro.")
+
+# <PilaA(), PilaB()>
+# PilaB.put(PilaA.get())
+
+visitar_sitio(historiales, "fran_ol", "wikipedia.com")
+visitar_sitio(historiales, "fran_ol", "google.com")
+# navegar_hacia_atras(historiales, "fran_ol")
+visitar_sitio(historiales, "fran_ol", "facebook.com")
+navegar_hacia_atras(historiales, "fran_ol")
+print(historiales)
+
+def copiar(p:Pila) -> Pila:
+    elements: int=[]
+    while not p.empty():
+        elements.append(p.get())
+    p_copy: Pila = Pila()
+    for i in range(len(elements)-1, 0-1,-1):
+        p.put(elements[i])
+        p_copy.put(elements[i])
+    return p_copy
+
+def cantidad_elementos_pila(p:Pila)-> int:
+    elementos:int= 0 
+    while not p.empty():
+        p.get()
+        elementos+=1
+        
+    return elementos
+
+def ver_historial_para_atras(historial, usuario):
+
+    lista_de_paginas_completa = list()
+    copia_pila = copiar(historiales[usuario][0])
+    len_pila = cantidad_elementos_pila(copia_pila)
+
+    for j in range(len_pila):
+            while not historiales[usuario][0].empty():
+                pagina = historiales[usuario][0].get()
+                lista_de_paginas_completa.append(pagina)
+
+    return lista_de_paginas_completa 
+
+def ver_historial_para_adelante(historial, usuario):
+    
+    lista_de_paginas_completa = list()
+    copia_pila = copiar(historiales[usuario][1])
+    len_pila = cantidad_elementos_pila(copia_pila)
+
+    for j in range(len_pila):
+            while not historiales[usuario][1].empty():
+                pagina = historiales[usuario][1].get()
+                lista_de_paginas_completa.append(pagina)
+
+    return lista_de_paginas_completa 
+
+
+def ver_historial(historial, usuario):
+    lista_de_paginas_completa = list()
+
+    lista_de_paginas_para_atras = ver_historial_para_atras(historial, usuario)
+    lista_de_paginas_para_adelante = ver_historial_para_adelante(historial, usuario)
+    
+    lista_de_paginas_completa.append(lista_de_paginas_para_atras)
+    lista_de_paginas_completa.append(lista_de_paginas_para_adelante)
+    return lista_de_paginas_completa  
+
+print(ver_historial(historiales, "fran_ol"))
 
 # 23
 inventario = dict()
