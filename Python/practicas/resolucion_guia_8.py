@@ -1,6 +1,7 @@
 from queue import Queue as Cola
 from queue import LifoQueue as Pila
 import random
+from typing import List
 
 """
 ARCHIVOS
@@ -90,11 +91,11 @@ def agregarFraseAlPrincipio(nombre_archivo: str, frase: str) -> None:
     # Write the new data to the file
         file.write(frase+"\n")
 
-return None
+    return None
 
 # 6
 
-def binarioMasLegibles(nombre_archivo: str) -> List():
+def binarioMasLegibles(nombre_archivo: str):
     palabras_legibles = list()
 
     with open(nombre_archivo, 'rb', encoding='utf-8') as file:
@@ -423,5 +424,37 @@ print(ver_historial(historiales, "fran_ol"))
 # 23
 inventario = dict()
 
-def agregar_producto():
-    return None
+def agregar_producto(inventario, nombre, precio, cantidad):
+
+    if nombre not in inventario:
+        inventario[nombre] = dict()
+        inventario[nombre]["precio"] = precio  
+        inventario[nombre]["cantidad"] = cantidad
+    
+    else:
+        Print("el producto no esta en el inventario")
+
+def actualizar_stock(inventario, nombre, cantidad):
+
+    if nombre in inventario:
+        inventario[nombre]["cantidad"] = cantidad
+    
+
+def actualizar_precios(inventario, nombre, precio):
+
+    if nombre in inventario:
+        inventario[nombre]["precio"] = precio
+
+
+def calcular_valor_inventario(inventario):
+    cant_total_inventario = 0
+    for producto in inventario:
+        cant_total_producto = inventario[producto]["precio"] * inventario[producto]["cantidad"]
+        cant_total_inventario += cant_total_producto
+    return cant_total_inventario    
+
+agregar_producto(inventario, "Camisa", 20.0, 50)
+agregar_producto(inventario, "Pantalon", 30.0, 30)
+actualizar_stock(inventario, "Camisa", 10)
+valor_total = calcular_valor_inventario(inventario)
+print("Valor total del inventario:", valor_total) # Deber´ıa imprimir 1300.00
