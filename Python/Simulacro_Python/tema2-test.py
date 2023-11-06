@@ -1,19 +1,32 @@
 import unittest
-from solucion import contar_traducciones_iguales, ultima_aparicion, elementos_exclusivos, convertir_a_diccionario
+from solucion import *
+
+s = [-1,4,0,4,3,0,100,0,-1,-1]
+t = [0,100,5,0,100,-1,5]
 
 class Ej1Test(unittest.TestCase):
+
     def test_trivial(self):
         res = ultima_aparicion([1],1)
         self.assertEqual(res, 0)
 
     def test_ejemplo(self):
-        res = ultima_aparicion([-1,4,0,4,100,0,100,0,-1,-1],0)
+        res = ultima_aparicion(s,0)
         self.assertEqual(res, 7)
 
 class Ej2Test(unittest.TestCase):
+
     def test_trivial(self):
         res = elementos_exclusivos([],[])
         self.assertEqual(res, [])
+
+    def test_ejemplo(self):
+        res = elementos_exclusivos(s,t)
+        self.assertEqual(res, [3, 4, 5])
+
+
+class Ej3Test(unittest.TestCase):
+
     def test_trivial(self):
         res = contar_traducciones_iguales({},{})
         self.assertEqual(res,0)
@@ -24,8 +37,8 @@ class Ej2Test(unittest.TestCase):
         res = contar_traducciones_iguales(ingles,aleman)
         self.assertEqual(res,2)
 
-
 class Ej4Test(unittest.TestCase):
+
     def test_trivial(self):
         res = convertir_a_diccionario([])
         self.assertEqual(res, {})

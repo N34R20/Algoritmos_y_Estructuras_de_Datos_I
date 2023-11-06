@@ -10,7 +10,7 @@ def ultima_aparicion(s: list, e: int) -> int:
             pass
     return indices[-1]
 
-print(ultima_aparicion(s,e))        
+print("primer funcion:\n",ultima_aparicion(s,e),"\n")        
 
 
 s = [-1,4,0,4,3,0,100,0,-1,-1]
@@ -23,9 +23,6 @@ def elementos_exclusivos(s: list, t: list) -> list:
 
     s = list(set(s))
     t = list(set(t))
-
-    print(s)
-    print(t)
 
     for i in range(len(s)):
         if s[i] not in t:
@@ -41,7 +38,7 @@ def elementos_exclusivos(s: list, t: list) -> list:
 
     return lista_de_exclusivos  
 
-print(elementos_exclusivos(s,t))    
+print("segunda funcion:\n",elementos_exclusivos(s,t),"\n")    
 
 aleman = {"Mano": "Hand", "Pie": "Fuss", "Dedo": "Finger", "Cara": "Gesicht"}
 ingles = {"Pie": "Foot", "Dedo": "Finger", "Mano": "Hand"}
@@ -68,7 +65,7 @@ def contar_traducciones_iguales(ingles: dict, aleman: dict) -> int:
     return contador        
 
 
-print(contar_traducciones_iguales(ingles, aleman))
+print("tercer funcion:\n",contar_traducciones_iguales(ingles, aleman),"\n")
 
 lista = [-1,0,4,100,100,-1,-1]
 
@@ -84,5 +81,5 @@ def convertir_a_diccionario(lista: list) -> dict:
     return diccionario_nuevo
 
 
-print(convertir_a_diccionario(lista))
+print("cuarta funcion:\n",convertir_a_diccionario(lista),"\n")
 

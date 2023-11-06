@@ -16,8 +16,6 @@ def elementos_exclusivos(s: list, t: list) -> list:
     s = list(set(s))
     t = list(set(t))
 
-    print(s)
-    print(t)
 
     for i in range(len(s)):
         if s[i] not in t:
@@ -46,7 +44,7 @@ def contar_traducciones_iguales(ingles: dict, aleman: dict) -> int:
         if key not in merge_dict.keys():
             merge_dict[key] = list()
             merge_dict[key].append(value)
-        else:convertir_a_diccionario
+        else:
             merge_dict[key].append(value)    
 
     contador = 0
