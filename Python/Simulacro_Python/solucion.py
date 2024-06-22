@@ -9,6 +9,7 @@ def ultima_aparicion(s: list, e: int) -> int:
 
 
 def elementos_exclusivos(s: list, t: list) -> list:
+    
     lista_de_exclusivos = list()
 
 # lo convierto en tuplas para reconvertirlos en listas asi saco los repetidos que estan en la misma lista 
@@ -65,3 +66,12 @@ def convertir_a_diccionario(lista: list) -> dict:
             diccionario_nuevo[lista[i]] += 1
 
     return diccionario_nuevo
+
+# Alternativa
+'''
+    for elemento in lista:
+        if elemento not in diccionario_nuevo: 
+            diccionario_nuevo[elemento] = 1
+        else:
+            diccionario_nuevo[elemento] += 1
+'''

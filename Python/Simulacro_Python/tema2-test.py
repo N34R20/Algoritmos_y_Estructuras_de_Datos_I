@@ -1,5 +1,5 @@
 import unittest
-from solucion import *
+from solucion_nico import *
 
 s = [-1,4,0,4,3,0,100,0,-1,-1]
 t = [0,100,5,0,100,-1,5]
@@ -22,7 +22,7 @@ class Ej2Test(unittest.TestCase):
 
     def test_ejemplo(self):
         res = elementos_exclusivos(s,t)
-        self.assertEqual(res, [3, 4, 5])
+        self.assertEqual(res, [3,4,5])
 
 
 class Ej3Test(unittest.TestCase):
