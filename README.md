@@ -2,10 +2,12 @@
 
 Este repositorio consta del material bibliografico y ejercicios de la materia Algoritmos y Estructuras de Datos (Facultad de Ciencias Exactas UBA)
 
-## Haskell
+## [Haskell](/Haskell/)
 
-## Python
+## [Python](/Python/)
 
-## Teoricas
+## [Teoricas](/Teoricas/)
 
 ## Bibliografia
+
+- The Science of Programming - David Gries
